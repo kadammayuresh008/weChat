@@ -4,22 +4,39 @@ const socket = io()
 let Name;
 let textarea = document.querySelector("#textarea")
 let messageArea = document.querySelector(".messageArea")
-// let heading = document.querySelector(".p")
+let heading = document.querySelector(".p")
+let members = document.querySelector(".total")
+let count=0
 
 do
 {
   Name = prompt('Please enter your name.')
+//   groname = prompt('Please enter your Groupname.')
   if(Name){
     let msg={
         user : '',
         mssg : `${Name} joined the chat`,
         time : '',
+        counter: count++,
     }
-    // heading.innerHTML=`${Name}`
-    appendMessage(msg,'startmsg')
+    let msg1={
+        user : '',
+        mssg : `Welcome to weChat`,
+        time : '',
+        counter: count++,
+    }
+    members.innerHTML=msg.counter+' members'
+    // console.log(count);
+    // heading.innerHTML=`${groName}`
+    appendMessage(msg1,'startmsg')
     socket.emit("Sendingmsg",msg)
   }
+  else{
+      continue
+  }
 }while(!Name)
+
+
 
 
 textarea.addEventListener('keyup',(e)=>
@@ -95,3 +112,36 @@ function bottom()
 {
     messageArea.scrollTop = messageArea.scroll
 }
+
+
+// function videocall(){
+//     navigator.mediaDevices.getUserMedia({ 
+//         video:true, 
+//         audio:true
+//       }).then((stream)=>{ 
+//           console.log("Video stream started.")
+//       }).catch(err=>{ 
+//           alert(err.message) 
+//       })
+
+
+//       socket.on('userJoined' , id=>{ 
+//         console.log("new user joined") 
+        
+//         // Calling other client and sending our stream 
+//         const call  = peer.call(id , myVideoStream); 
+//         const vid = document.createElement('video'); 
+//         call.on('error' , (err)=>{ 
+//           alert(err); 
+//         }) 
+        
+//         // Taking the stream of the other client 
+//         // when they will send it. 
+//         call.on('stream' , userStream=>{ 
+        
+//           // addVideo is a function which append 
+//           // the video of the clients 
+//           addVideo(vid , userStream); 
+//         })})
+
+// }

@@ -5,13 +5,31 @@
 <meta name="description" content="Our first page">
 <meta name="keywords" content="html tutorial template">
 <link rel="stylesheet" href="/Style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background-color: #c607b9;
+background-image: linear-gradient(135deg, #c607b9 23%, #631557 100%);
+">
+<div class="row col-sm-12">
+    <div class="col-sm-6 center">
+        <marquee behavior="alternate"  width="60%" direction="up" height="375px"
+        scrollamount="1">
+        <img src="/Photo.jpg" alt="No Image found" style="height: 200px;border-radius:50%;border: none;">
+        <h1 class="heading">weChat</h1>
+        <p class="p">Group chat and videocall on one click.</p>
+    </marquee>
+    </div>
+    <div class="col-sm-6">
     <section class="chat_box">
         <div class="navbar rows">
             <img src="/icon.jfif" alt="No Image found" style="height: 50px;border-radius:50%;">
-            <p class="p" style="color: white;font-size: x-large;padding:5px;">weChat</p>
-            <button class="button">
+            <div class="col">
+            <div class="p" style="color: white;font-size: x-large;padding:2px;">weChat</div>
+            <small><b class="total"></b></small>
+            </div>
+            <button class="button" onclick="videocall()">
             <img class="img" src="/video-camera.png" alt="No Image found" >
         </button>
         </div>
@@ -20,8 +38,16 @@
         <div>
             <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
         </div>
+        <div id="videoDiv"></div> 
     </section>
+</div>
+</div>
+    <script src= 
+            "https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"
+        defer> 
+    </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/Me.js"></script>
+    
 </body>
 </html>
